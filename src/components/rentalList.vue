@@ -2,18 +2,15 @@
   <div>
     <h1>rental list</h1>
     <div v-for="(ithRental, index) in rentals">
-      <!-- <pre>{{ithRental['_source']['images']}}</pre> -->
       <rental-item :rentalInstance="ithRental"></rental-item>
     </div>
     
-    <!-- <pre>{{rentals}}</pre> -->
   </div>
   
 </template>
 
 <script>
   import rentalItem from './rentalItem'
-  // import { mapState } from 'vuex'
   export default {
     components: {
       rentalItem: rentalItem
@@ -22,7 +19,6 @@
     computed: {
       rentals () {
         let rentalList = this.$store.state.rentals
-        console.log('rentalList :' + rentalList)
         return rentalList
       }
     }

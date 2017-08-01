@@ -5,13 +5,6 @@
 <script>
 export default {
   name: 'rental-item',
-  // data () {
-  //   return {
-  //     rentals: {
-  //       message: 'doodoo here'
-  //     }
-  //   }
-  // },
   props: ['rentalInstance']
 }
 </script>

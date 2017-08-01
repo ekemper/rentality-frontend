@@ -14,8 +14,6 @@ const store = new Vuex.Store({
     LOAD_RENTAL_LIST: function ({ commit }) {
       axios.get('http://localhost:2222/rentals').then((response) => {
         let parsedRentalList = rentalHelpers.parseQueryResponse(response)
-        console.log('parsedRentalList : ' + parsedRentalList)
-
         commit('SET_RENTALS_LIST', { list: parsedRentalList })
       }, (err) => {
         console.log(err)
