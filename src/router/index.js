@@ -8,7 +8,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/rental-list',
+      path: '/rentals',
       name: 'rentalList',
       component: rentalList
     },
@@ -16,6 +16,7 @@ export default new Router({
       path: '/rental/:rentalId',
       name: 'rentalDetails',
       component: rentalDetails
-    }
+    },
+    { path: '*', redirect: '/rentals' }
   ]
 })

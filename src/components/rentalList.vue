@@ -1,18 +1,14 @@
 <template>
   <div class="container">
     <h1>rentality</h1>
-
     <div class="card-columns">
       <div v-for="rental in rentals">
-
-        <!-- <router-link :to="{ name: 'rentalDetails', params: { rentalId: value['_source']['_id'] }}"> -->
+        <router-link :to="{ name: 'rentalDetails', params: { rentalId: rental['_id'] }}">
           <rental-item :rentalId="rental['_id']"></rental-item>
-        <!-- </router-link> -->
+        </router-link>
       </div>
     </div>
   </div>
-    
-  
 </template>
 
 <script>
