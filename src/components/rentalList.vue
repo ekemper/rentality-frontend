@@ -1,11 +1,17 @@
 <template>
-  <div>
-    <h1>rental list</h1>
-    <div v-for="(ithRental, index) in rentals">
-      <rental-item :rentalInstance="ithRental"></rental-item>
+  <div class="container">
+    <h1>rentality</h1>
+
+    <div class="card-columns">
+      <div v-for="rental in rentals">
+
+        <!-- <router-link :to="{ name: 'rentalDetails', params: { rentalId: value['_source']['_id'] }}"> -->
+          <rental-item :rentalId="rental['_id']"></rental-item>
+        <!-- </router-link> -->
+      </div>
     </div>
-    
   </div>
+    
   
 </template>
 
@@ -18,8 +24,7 @@
     name: 'rentalList',
     computed: {
       rentals () {
-        let rentalList = this.$store.state.rentals
-        return rentalList
+        return this.$store.state.rentalsById
       }
     }
   }

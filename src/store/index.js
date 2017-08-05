@@ -8,27 +8,26 @@ let rentalHelpers = new RentalHelpers()
 Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
-    rentals: []
+    rentalsById: {}
   },
   actions: {
     LOAD_RENTAL_LIST: function ({ commit }) {
       axios.get('http://localhost:2222/rentals').then((response) => {
-        let parsedRentalList = rentalHelpers.parseQueryResponse(response)
-        commit('SET_RENTALS_LIST', { list: parsedRentalList })
+        let parsedRentalsObject = rentalHelpers.parseQueryResponse(response)
+        commit('SET_RENTALS_BY_ID', parsedRentalsObject)
       }, (err) => {
         console.log(err)
       })
     }
   },
   mutations: {
-    SET_RENTALS_LIST: (state, { list }) => {
-      state.rentals = list
+    SET_RENTALS_BY_ID: (state, obj) => {
+      state.rentalsById = obj
     }
   },
   getters: {
-    rentals: state => {
-      // return state.projects.filter(project => !project.completed)
-      return state.rentals
+    rentalsById: state => {
+      return state.rentalsById
     }
   }
 })

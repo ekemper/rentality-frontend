@@ -11,23 +11,20 @@
 </template>
 
 <script>
-export default {
-  name: 'rentalItem',
-  props: ['rentalId'],
-  computed: {
-    rentalInstance () {
-      let rentalsById = this.$store.state.rentalsById
-      let id = this.rentalId
-      let rentalInstance = rentalsById[id]
-      return rentalInstance
+  export default {
+    name: 'rentalDetails',
+    props: ['rentalId'],
+    computed: {
+      rentalInstance () {
+        let rentalsById = this.$store.state.rentalsById
+        let rentalInstance = rentalsById[this.rentalId]
+        return rentalInstance
+      }
     }
   }
-}
 </script>
+
 
 <style >
 
-#leadImage {
-  height: 275px;
-}
 </style>
