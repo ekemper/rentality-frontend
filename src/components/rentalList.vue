@@ -20,7 +20,8 @@
     name: 'rentalList',
     computed: {
       rentals () {
-        return this.$store.state.rentalsById
+        let result = this.$store.state.rentalsById
+        return result
       }
     }
   }

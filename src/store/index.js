@@ -6,7 +6,7 @@ import RentalHelpers from './rentalHelpers'
 let rentalHelpers = new RentalHelpers()
 
 Vue.use(Vuex)
-const store = new Vuex.Store({
+export default new Vuex.Store({
   state: {
     rentalsById: {}
   },
@@ -31,4 +31,3 @@ const store = new Vuex.Store({
     }
   }
 })
-export default store
